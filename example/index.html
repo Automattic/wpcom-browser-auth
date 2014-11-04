@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WordPress.com REST API Browser Authentication Test Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <script src="../../dist/wpcom-browser-auth.js"></script>
+
+    <a href="#" id="authbutton">
+      <img src="//s0.wp.com/i/wpcc-button.png" width="231" alt="Connect with WordPress.com" />
+    </a>
+
+    <script>
+      // this App expects Redirect URL: "http://localhost:3000/example/"
+      var client_id = '37524';
+      var authbutton = document.getElementById('authbutton');
+
+      // when the Redirect URL is invoked with the access_token,
+      // then the `response()` function will return an Object.
+      var response = wpcomBrowserAuth.response();
+      if (response) {
+
+        // remove Connect button
+        authbutton.parentNode.removeChild(authbutton);
+
+        // stringify the access token and insert it into the DOM
+        var pre = document.createElement('pre');
+        pre.style.textAlign = 'left';
+        pre.appendChild(document.createTextNode(JSON.stringify(response, null, 2)));
+        document.body.appendChild(pre);
+
+        var a = document.createElement('button');
+        a.appendChild(document.createTextNode('Logout'));
+        a.onclick = function () {
+          window.location = location.href.replace(/\#.*$/, '');
+          return false;
+        };
+        document.body.appendChild(a);
+
+      } else {
+
+        // called when the WP.com "Connect" button is clicked.
+        authbutton.onclick = function () {
+          wpcomBrowserAuth.redirect(client_id);
+          return false;
+        };
+      }
+    </script>
+  </body>
+</html>
