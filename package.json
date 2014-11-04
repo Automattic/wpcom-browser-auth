@@ -1,6 +1,6 @@
 {
   "name": "wpcom-browser-auth",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Browser authentication logic for the WordPress.com REST API",
   "main": "index.js",
   "directories": {
