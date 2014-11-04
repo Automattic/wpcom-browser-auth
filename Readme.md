@@ -1,4 +1,4 @@
-# wpcom--browser-auth
+# wpcom-browser-auth
 
 **Browser authentication logic for the WordPress.com REST API**
 
