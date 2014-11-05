@@ -10,9 +10,9 @@ You must create a WordPress.com Application, with the "Native" app type.
 Then you may pass the `client_id` of your application to the `redirect()`
 function.
 
-If your Redirect URL page, you invoke the `response()` function to get
+In your Redirect URL page, you invoke the `response()` function to get
 the parsed access token (or error object if the user refused access),
-with which you can do API calls against the REST API.
+with which you can execute API calls against the REST API.
 
 
 ### Installation
